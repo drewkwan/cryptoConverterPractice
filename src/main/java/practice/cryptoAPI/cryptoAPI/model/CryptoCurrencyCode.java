@@ -2,9 +2,6 @@ package practice.cryptoAPI.cryptoAPI.model;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -15,7 +12,6 @@ import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 
 public class CryptoCurrencyCode {
-    private List<String> symbols;
     private String symbol;
     private static final Logger logger = LoggerFactory.getLogger(CryptoCurrencyCode.class);
 
@@ -28,7 +24,7 @@ public class CryptoCurrencyCode {
     }
 
 public static Set<String> lsOfCryptoCodes(String json) {
-    CryptoCurrencyCode ccc = new CryptoCurrencyCode();
+    //CryptoCurrencyCode ccc = new CryptoCurrencyCode();
     InputStream is = new ByteArrayInputStream(json.getBytes());
     try(JsonReader jr = Json.createReader(is)) {
         JsonObject cryptoListJsonObject = jr.readObject();

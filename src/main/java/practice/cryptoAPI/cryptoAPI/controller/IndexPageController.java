@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import practice.cryptoAPI.cryptoAPI.model.Conversion;
-import practice.cryptoAPI.cryptoAPI.model.CryptoCurrencyCode;
 import practice.cryptoAPI.cryptoAPI.service.CurrencyService;
 
 //task 2: index.html to handle the countries and all

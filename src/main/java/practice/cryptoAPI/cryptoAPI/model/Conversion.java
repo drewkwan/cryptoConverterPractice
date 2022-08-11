@@ -26,6 +26,7 @@ public class Conversion {
     //json structures help me to exploit the key:value pairing rather than processign everything as a string
     private String country;
     private BigDecimal number;
+    //private boolean errorMessage = false;
 
 
     public String getCountry() {
