@@ -21,7 +21,8 @@ public class Conversion {
 
     //private boolean tryConversion;
     private String fsym; //doesnt need to match
-    private String tsyms; //can be like toCurrency
+    private String tsyms; //can be like toCurrency 
+    //The two required params are important to instantiate because i need to construct the url
     //json structures help me to exploit the key:value pairing rather than processign everything as a string
     private String country;
     private BigDecimal number;
@@ -68,7 +69,7 @@ public class Conversion {
             //o.getJsonObject is returning a null. 
             //logger.info(">>>>>@@@@ " + o.getJsonObject("AED"));
             logger.info(">>>>!!! " + o.keySet());
-            logger.info(">>>>>BALLZY ----------- " + o.values());
+            logger.info(">>>>>values ----------- " + o.values());
             //I dont know how to get the try conversion co sits boolean
             //So these two don't do anything.
             Set<String> countrySet = o.keySet();

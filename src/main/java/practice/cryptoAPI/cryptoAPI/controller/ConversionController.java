@@ -32,6 +32,8 @@ public class ConversionController {
             model.addAttribute("conversion", new Conversion());
             return "exchange";
         }
+        
+        //c.converCryptoRates = conversion
         logger.info("<<<<<<<< " + c.getFsym() + ">>>>>>>>>>>>> " + c.getTsyms());
         model.addAttribute("conversion", optConverter.get());
         model.addAttribute("fsym", c.getFsym());
@@ -41,7 +43,6 @@ public class ConversionController {
         return "exchange";
     }
 
-    //Currently it's not returning any va   lues and i suspect it is because my fsym and tsyms are bigdecimals
 
     
 }

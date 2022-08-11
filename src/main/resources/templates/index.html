@@ -11,14 +11,14 @@
         <h1>Crypto Converter!</h1>
         <div class="row mt-5">
             <div class="col">
-                <form method="GET" action="exchange">
-                    <div class="input-group">
-                        <select name="fsym" id="fsym">
-                            <option value="BTC">Bitcoin</option>
-                            <option value="ETH">Ethereum</option>
-                            <option value="DOGE">DogeCoin</option>
+                <form method="GET" action="exchange"> <!--the action is where the page will go to, ie localhost8080/exchange-->
+                    <div class="input-group">Select your crypto
+                        <select name="fsym" id="fsym"> <!--this needs to match request parameter-->
+                            <option th:each="crypto, iterStat : ${lsOfCryptoCodes}" th:value="${lsOfCryptoCodes[iterStat.index]}">
+                                <span th:text="${crypto}"></span>
+                             </option>
                           </select>
-                        
+                          <br>select your currency
                           <select name="tsyms" id="tsyms">
                             <option th:each="country, iterStat : ${lsOfCountryCodes}" th:value="${lsOfCountryCodeVals[iterStat.index]}">
                                 <span th:text="${country}"></span>

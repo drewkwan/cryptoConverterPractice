@@ -2,6 +2,7 @@ package practice.cryptoAPI.cryptoAPI.service;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import practice.cryptoAPI.cryptoAPI.model.Conversion;
+import practice.cryptoAPI.cryptoAPI.model.CryptoCurrencyCode;
 import practice.cryptoAPI.cryptoAPI.model.CurrencyCode;
 
 @Service
@@ -22,6 +24,7 @@ public class CurrencyService {
 
     //task 1:convery the list of countries
     public static final String LS_Currency = "http://openexchangerates.org/api/currencies.json";
+    
 
     public Map<String, String> getCountryCodeList() {
         RestTemplate template = new RestTemplate();
@@ -29,6 +32,19 @@ public class CurrencyService {
         Map<String, String> lsOfGeoCodes = CurrencyCode.lsOfCountryCodes(resp.getBody());
         return lsOfGeoCodes;
 
+    }
+
+    public static final String LS_Crypto = "https://min-api.cryptocompare.com/data/blockchain/list?";
+
+    //convert list of crypto
+    public Set<String> getCryptoCodeList() {
+        String apiKey = "14e47fc28750bf863a0b09054cd3685fd5de8c8d01c2e7cbbc60b6ab544f99ac";
+        String cryptoCodeListUrl = UriComponentsBuilder.fromUriString(LS_Crypto).queryParam("api_key", apiKey).toUriString();
+        logger.info(cryptoCodeListUrl);
+        RestTemplate template = new RestTemplate();
+        ResponseEntity<String> resp = template.getForEntity(cryptoCodeListUrl, String.class);
+        Set<String> lsOfCryptoSymbols = CryptoCurrencyCode.lsOfCryptoCodes(resp.getBody());
+        return lsOfCryptoSymbols;
     }
 
     //task 3: make the api call
@@ -62,6 +78,9 @@ public class CurrencyService {
         return Optional.empty();
 
     }
+
+    //get crypto list
+    
 
 
 }
