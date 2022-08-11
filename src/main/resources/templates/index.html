@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert your crypto here!</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Crypto Converter!</h1>
+        <div class="row mt-5">
+            <div class="col">
+                <form method="GET" action="exchange">
+                    <div class="input-group">
+                        <select name="fsym" id="fsym">
+                            <option value="BTC">Bitcoin</option>
+                            <option value="ETH">Ethereum</option>
+                            <option value="DOGE">DogeCoin</option>
+                          </select>
+                        
+                          <select name="tsyms" id="tsyms">
+                            <option th:each="country, iterStat : ${lsOfCountryCodes}" th:value="${lsOfCountryCodeVals[iterStat.index]}">
+                                <span th:text="${country}"></span>
+                             </option>
+                          </select>
+                        <button type="submit" class="btn btn-warning btn-lg">
+                            Convert
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

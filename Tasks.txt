@@ -1,0 +1,3 @@
+Create a service that will populate all the currencies that you can 
+Create the index.html landing page that will handle the submission of the parameters. Hard code the list of crypto
+Create a controller that will handle the GET method
